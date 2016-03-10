@@ -15,6 +15,16 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'haml-rails'
 gem 'font-awesome-rails'
+gem 'lazy_high_charts'
+
+gem 'devise', github: 'plataformatec/devise'
+gem 'omniauth'
+gem 'omniauth-heroku'
+gem 'omniauth-google-oauth2'
+
+gem 'annotate'
+gem 'simple_form'
+gem 'action_args'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
