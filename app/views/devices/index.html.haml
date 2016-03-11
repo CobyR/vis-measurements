@@ -27,7 +27,7 @@
           - @devices.each do |device|
             %tr
               %td
-                = device.name
+                = link_to device.name, device_path(device)
               %td
                 = device.identifier
               %td

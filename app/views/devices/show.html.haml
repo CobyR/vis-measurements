@@ -1,6 +1,41 @@
-%p#notice= notice
-
-
-= link_to 'Edit', edit_device_path(@device)
-\|
-= link_to 'Back', devices_path
+.container
+  .row
+    .col-md-4
+      .panel.panel-default
+        .panel-heading
+          %h2
+            = @device.name
+        .panel-body
+          %dl
+            %dt
+              Location
+            %dd
+              = @device.location
+            %dt
+              Identifier
+            %dd
+              = @device.identifier
+    .col-md-8
+      .panel.panel-default
+        .panel-heading
+          Measurements
+        .panel-body
+          %table.table.table-striped.table-hover
+            %thead
+              %tr
+                %th
+                  Measurement
+                %th
+                  Value
+                %th
+                  Timestamp
+            %tbody
+              - @device.measurements.each do |m|
+                %tr
+                  %td
+                    = m['name'].titleize
+                  %td
+                    = m['value']
+                  %td
+                    = Time.zone.parse(m['created_at'])
+        
