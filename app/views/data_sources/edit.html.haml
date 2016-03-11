@@ -1,7 +1,9 @@
-%h1 Editing data_source
-
-= render 'form'
-
-= link_to 'Show', @data_source
-\|
-= link_to 'Back', data_sources_path
+.container
+  .row
+    .col-md-12
+      %h1
+        Data Source for Widget:
+        = "'#{link_to(@widget.name, widget_path(@widget))}'".html_safe
+  .row
+    .col-md-6
+      = render 'form'
