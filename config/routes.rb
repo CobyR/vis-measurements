@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'dashboards/index'
+
   devise_for :users
   get 'welcome/welcome'
 
@@ -8,4 +10,8 @@ Rails.application.routes.draw do
   # mount ActionCable.server => '/cable'
 
   root to: 'welcome#welcome'
+
+  resources :devices
+
+  resources :dashboards
 end

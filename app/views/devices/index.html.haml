@@ -1,0 +1,43 @@
+.container
+  .row
+    .col-md-12
+      %h1
+        My Devices
+        .pull-right
+          = link_to new_device_path do
+            %i.fa.fa-plus
+  .row
+    .col-md-12
+      %table.table.table-striped.table-hover
+        %thead
+          %tr
+            %th
+              Name
+            %th
+              Identifier
+            %th
+              Location
+            %th
+              Defined?
+            %th
+              Measurements
+            %th
+              Actions
+        %tbody
+          - @devices.each do |device|
+            %tr
+              %td
+                = device.name
+              %td
+                = device.identifier
+              %td
+                = device.location
+              %td.text-center
+                = device.defined? ? "yes":"no"
+              %td.text-center
+                = device.measurements.count
+              %td.text-center
+                = link_to edit_device_path(device) do
+                  %i.fa.fa-pencil
+                = link_to device_path(device), method: :delete, data: { confirm: 'Are you sure?' } do
+                  %i.fa.fa-trash-o

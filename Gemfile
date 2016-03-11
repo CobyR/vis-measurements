@@ -22,6 +22,8 @@ gem 'omniauth'
 gem 'omniauth-heroku'
 gem 'omniauth-google-oauth2'
 
+gem 'json'
+
 gem 'annotate'
 gem 'simple_form'
 gem 'action_args'

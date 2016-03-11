@@ -1,4 +1,4 @@
-.navbar-inverse
+.navbar
   .navbar-header
     %button.navbar-toggle{ type: 'button', data: { toggle: 'collapse', target: '.navbar-collapse' } }
       %span.sr-only
@@ -6,8 +6,8 @@
       %span.icon-bar
       %span.icon-bar
       %span.icon-bar
-    %a.navbar-brand{ href: '/'}
-      = image_tag "lights.png", alt: 'Lights'
+    %a.navbar-brand{ href: '/' }
+      %i.fa.fa-bulb-o
   .collapse.navbar-collapse
     - unless user_signed_in?
       .pull-right.hidden-xs
@@ -23,35 +23,20 @@
         = link_to new_user_registration_path, class: 'navbar-btn btn btn-red' do
           Sign Up
     - else
-      %ul.nav.navbar-nav.navbar-right#fix-me
+      %ul.nav.navbar-nav
+        %li
+          = link_to dashboards_path do
+            %i.fa.fa-dashboard
+            Dashboard
         %li
           = link_to devices_path do
             %i.fa.fa-folder-open-o
             Devices
-        %li
-          = link_to lights_path do
-            %i.fa.fa-lightbulb-o
-            Lights
-        %li
-          = link_to groups_path do
-            %i.fa.fa-object-group
-            Groups
-        %li
-          = link_to floor_plan_path do
-            %i.fa.fa-map
-            Floor Plan
+      %ul.nav.navbar-nav.navbar-right
         %li.dropdown
           = link_to '#', class: 'dropdown-toggle', 'data-toggle' => 'dropdown'  do
             = current_user.email
             %i.fa.fa-angle-down
           %ul.dropdown-menu
-            %li
-              = link_to 'Locations', locations_path
-            %li.divider
-            %li
-              = link_to 'Hue Lights', hue_lights_path
-            %li
-              = link_to 'Wemo', wemo_index_path
-            %li.divider
             %li
               = link_to 'Sign Out', destroy_user_session_path, class: 'sign_out', method: :delete
