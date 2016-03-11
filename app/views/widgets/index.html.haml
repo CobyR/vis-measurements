@@ -34,13 +34,13 @@
                 = widget.active ? 'Yes':'No'
               %td
                 = link_to widget.name, widget_path(widget)
-              %td
+              %td.text-center
                 = widget.size
-              %td
+              %td.text-center
                 = widget.order
               %td
                 = widget.display_type
-              %td
+              %td.text-center
                 = widget.data_sources.count
               %td
                 = time_ago_in_words widget.created_at

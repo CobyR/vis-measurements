@@ -31,7 +31,7 @@ class WidgetsController < ApplicationController
     respond_to do |format|
       if @widget.save
         flash[:success] = 'Your widget was successfully saved.'
-        format.html { redirect_to widgets_url}
+        format.html { redirect_to edit_widget_path(@widget)}
         format.json { render :show, status: :created, location: @widget }
       else
         format.html { render :new }

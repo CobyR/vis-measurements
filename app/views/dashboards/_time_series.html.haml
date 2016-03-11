@@ -1,0 +1,11 @@
+%div{ class: "col-md-#{widget.size.to_i * 3}" }
+  .widget
+    .panel.panel-info
+      .panel-heading.text-center
+        = widget.name
+        .pull-right
+          = link_to edit_widget_path(widget) do
+            %i.fa.fa-pencil
+      .panel-body{style: 'height: 462px'}
+        .widget-body-chart{style: 'height: 200px', id: "widget-#{widget.id}" }
+          = high_chart "widget-#{widget.id}", @widget_charts[widget.id]

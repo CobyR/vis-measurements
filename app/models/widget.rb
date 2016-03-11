@@ -15,10 +15,25 @@
 
 class Widget < ApplicationRecord
 
+  SIZES = %w|1x
+             2x
+             3x
+             4x
+            |
+
+  DISPLAY_TYPES = %w|CURRENT
+                     TIME_SERIES
+                    |
+
   belongs_to :user
 
   has_many :data_sources
 
   validates :size, :order, :display_type, :name, presence: true
+
+
+  scope :display, -> { where(active: true) }
+
+  default_scope { order(order: :asc) }
 
 end

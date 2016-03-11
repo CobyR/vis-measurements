@@ -12,7 +12,9 @@
           %th
             Device
           %th
-            Measurement
+            Measure
+          %th
+            Precise
           %th.text-center
             x axis min
           %th.text-center
@@ -26,13 +28,15 @@
       %tbody
         - @widget.data_sources.each do |ds|
           %tr
-            %td
+            %td{ style: 'white-space: nowrap' }
               = ds.device.name
             %td
               = ds.measurement
-            %td
+            %td.text-center
+              = ds.precision
+            %td.text-center
               = ds.x_axis_min
-            %td
+            %td.text-center
               = ds.x_axis_max
             %td
               = ds.units

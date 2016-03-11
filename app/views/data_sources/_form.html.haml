@@ -9,6 +9,7 @@
       .form-inputs
         = f.input :device_id, collection: current_user.devices
         = f.input :measurement, collection: DataSource::MEASUREMENTS
+        = f.input :precision, as: :integer
         = f.input :x_axis_min
         = f.input :x_axis_max
         = f.input :units

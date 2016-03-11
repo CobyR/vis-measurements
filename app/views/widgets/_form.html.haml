@@ -9,8 +9,8 @@
       .form-inputs
         = f.input :name
         = f.input :active
-        = f.input :size
+        = f.input :size, collection: Widget::SIZES
         = f.input :order
-        = f.input :display_type
+        = f.input :display_type, collection: Widget::DISPLAY_TYPES
       .form-actions
         = f.button :submit, 'Save Changes', class: 'btn btn-success'

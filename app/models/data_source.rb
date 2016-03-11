@@ -12,17 +12,26 @@
 #  symbol      :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  precision   :integer
 #
 
 class DataSource < ApplicationRecord
 
   MEASUREMENTS = %w|temperature
-                    humdity
+                    humidity
                     pressure
                     brightness
                    |
 
   belongs_to :widget
   belongs_to :device
+
+  def current_value
+    device.current_value(measurement).first
+  end
+
+  def time_series
+    device.time_series(measurement)
+  end
 
 end

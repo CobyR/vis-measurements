@@ -1,0 +1,13 @@
+%div{class: "col-md-#{widget.size.to_i * 3}" }
+  .widget
+    .panel.panel-info
+      .panel-heading.text-center
+        = widget.name
+        .pull-right
+          = link_to edit_widget_path(widget) do
+            %i.fa.fa-pencil
+      .panel-body{style: 'height: 200px'}
+        .widget-body
+          - widget.data_sources.each do |ds|
+            .data
+              = display_current_value ds

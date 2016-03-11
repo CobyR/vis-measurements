@@ -1,0 +1,8 @@
+%div{class: 'col-md-#{widget.size_x * 3}' }
+  .widget
+    .panel.panel-info
+      .panel-heading
+        = widget.name
+      .panel-body
+        - widget.data_sources.each do |ds|
+          = ds.measurement
