@@ -25,6 +25,8 @@
 #
 
 class User < ApplicationRecord
+  before_validation :default_time_zone
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -35,5 +37,11 @@ class User < ApplicationRecord
   has_many :widgets
 
   validates :time_zone, presence: true
+
+  private
+
+  def default_time_zone
+    self.time_zone = "UTC" unless self.time_zone
+  end
 
 end
