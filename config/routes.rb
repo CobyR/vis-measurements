@@ -10,4 +10,8 @@ Rails.application.routes.draw do
 
   resource :profile, controller: 'profile'
 
+  resources :widgets do
+    resources :data_sources
+  end
+
 end

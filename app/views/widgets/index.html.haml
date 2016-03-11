@@ -1,0 +1,55 @@
+.container
+  .row
+    .col-md-12
+      %h1
+        Widgets
+        .pull-right
+          = link_to new_widget_path do
+            %i.fa.fa-plus
+
+      %table.table.table-striped.table-hover
+        %thead
+          %tr
+            %th
+              Active
+            %th
+              Name
+            %th
+              Size
+            %th
+              Order
+            %th
+              Display
+            %th
+              Data Sources
+            %th
+              Created
+            %th
+              Updated
+
+        %tbody
+          - @widgets.each do |widget|
+            %tr
+              %td
+                = widget.active ? 'Yes':'No'
+              %td
+                = link_to widget.name, widget_path(widget)
+              %td
+                = widget.size
+              %td
+                = widget.order
+              %td
+                = widget.display_type
+              %td
+                = widget.data_sources.count
+              %td
+                = time_ago_in_words widget.created_at
+                ago
+              %td
+                = time_ago_in_words widget.updated_at
+                ago
+              %td
+                = link_to edit_widget_path(widget) do
+                  %i.fa.fa-pencil
+                = link_to widget_path(widget), method: :delete, data: { confirm: 'Are you sure?' } do
+                  %i.fa.fa-trash-o

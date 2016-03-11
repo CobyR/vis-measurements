@@ -1,0 +1,16 @@
+.panel.panel-default
+  .panel-heading
+    %h3
+      = @widget.name
+      &nbsp;
+  .panel-body
+    = simple_form_for(@widget) do |f|
+      = f.error_notification
+      .form-inputs
+        = f.input :name
+        = f.input :active
+        = f.input :size
+        = f.input :order
+        = f.input :display_type
+      .form-actions
+        = f.button :submit, 'Save Changes', class: 'btn btn-success'

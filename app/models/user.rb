@@ -32,5 +32,8 @@ class User < ApplicationRecord
 
   has_many :devices
 
+  has_many :widgets
+
   validates :time_zone, presence: true
+
 end

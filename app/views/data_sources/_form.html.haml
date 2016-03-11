@@ -1,0 +1,18 @@
+.panel.panel-default
+  .panel-heading
+    %h3.text-center
+      Data Source Details
+  .panel-body
+    = simple_form_for([@widget, @data_source]) do |f|
+      = f.error_notification
+
+      .form-inputs
+        = f.input :device_id, collection: current_user.devices
+        = f.input :measurement, collection: DataSource::MEASUREMENTS
+        = f.input :x_axis_min
+        = f.input :x_axis_max
+        = f.input :units
+        = f.input :symbol
+
+      .form-actions
+        = f.button :submit, 'Save Changes', class: 'btn btn-success'

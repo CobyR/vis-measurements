@@ -1,0 +1,35 @@
+# == Schema Information
+#
+# Table name: data_sources
+#
+#  id          :integer          not null, primary key
+#  widget_id   :integer
+#  device_id   :integer
+#  measurement :string
+#  x_axis_min  :decimal(, )
+#  x_axis_max  :decimal(, )
+#  units       :string
+#  symbol      :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  widget_id: 1
+  device_id: 1
+  measurement: MyString
+  x_axis_min: 9.99
+  x_axis_max: 9.99
+  units: MyString
+  symbol: MyString
+
+two:
+  widget_id: 1
+  device_id: 1
+  measurement: MyString
+  x_axis_min: 9.99
+  x_axis_max: 9.99
+  units: MyString
+  symbol: MyString

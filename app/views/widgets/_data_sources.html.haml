@@ -1,0 +1,45 @@
+.panel.panel-default
+  .panel-heading
+    %h3
+      Data Sources
+      .pull-right
+        = link_to new_widget_data_source_path(@widget) do
+          %i.fa.fa-plus
+  .panel-body
+    %table.table.table-striped.table-hover
+      %thead
+        %tr
+          %th
+            Device
+          %th
+            Measurement
+          %th.text-center
+            x axis min
+          %th.text-center
+            x axis max
+          %th
+            Units
+          %th
+            Symbol
+          %th
+            Actions
+      %tbody
+        - @widget.data_sources.each do |ds|
+          %tr
+            %td
+              = ds.device.name
+            %td
+              = ds.measurement
+            %td
+              = ds.x_axis_min
+            %td
+              = ds.x_axis_max
+            %td
+              = ds.units
+            %td
+              = ds.symbol
+            %td
+              = link_to edit_widget_data_source_path(@widget, ds) do
+                %i.fa.fa-pencil
+              = link_to widget_data_source_path(@widget,ds), method: :delete, data: { confirm: 'Are you sure?' } do
+                %i.fa.fa-trash-o
