@@ -1,6 +1,6 @@
 %div{ class: "col-md-#{widget.size.to_i * 3}" }
   .widget
-    .panel.panel-info
+    .panel{class: "panel-#{widget.safe_color}"}
       .panel-heading.text-center
         = widget.name
         .pull-right
