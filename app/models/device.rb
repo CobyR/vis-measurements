@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: devices
+#
+#  id         :integer          not null, primary key
+#  identifier :string
+#  name       :string
+#  location   :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  user_id    :integer
+#
+
 require 'json'
 require 'open-uri'
 
@@ -17,6 +30,10 @@ class Device < ApplicationRecord
 
   def measurements
     data = JSON.parse open("#{SOURCE_URL}/api/measurements?device=#{self.identifier.upcase}").read
+  end
+
+  def time_series
+    data = JSON.parse open("#{SOURCE_URL}/api/measurements?device=#{self.identifier.upcase}&format=ts").reead
   end
 
 end

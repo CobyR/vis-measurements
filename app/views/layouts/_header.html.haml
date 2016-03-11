@@ -1,42 +1,50 @@
-.navbar
-  .navbar-header
-    %button.navbar-toggle{ type: 'button', data: { toggle: 'collapse', target: '.navbar-collapse' } }
-      %span.sr-only
-        Toggle navigation
-      %span.icon-bar
-      %span.icon-bar
-      %span.icon-bar
-    %a.navbar-brand{ href: '/' }
-      %i.fa.fa-bulb-o
-  .collapse.navbar-collapse
-    - unless user_signed_in?
-      .pull-right.hidden-xs
-        = link_to new_user_session_path, class: 'navbar-btn btn btn-red' do
-          Sign In
-        &nbsp;
-        = link_to new_user_registration_path, class: 'navbar-btn btn btn-red' do
-          Sign Up
-      %div.hidden-lg.hidden-md.hidden-sm
-        = link_to new_user_session_path, class: 'navbar-btn btn btn-red' do
-          Sign In!
-        &nbsp;
-        = link_to new_user_registration_path, class: 'navbar-btn btn btn-red' do
-          Sign Up
-    - else
-      %ul.nav.navbar-nav
-        %li
-          = link_to dashboards_path do
-            %i.fa.fa-dashboard
-            Dashboard
-        %li
-          = link_to devices_path do
-            %i.fa.fa-folder-open-o
-            Devices
-      %ul.nav.navbar-nav.navbar-right
-        %li.dropdown
-          = link_to '#', class: 'dropdown-toggle', 'data-toggle' => 'dropdown'  do
-            = current_user.email
-            %i.fa.fa-angle-down
-          %ul.dropdown-menu
-            %li
-              = link_to 'Sign Out', destroy_user_session_path, class: 'sign_out', method: :delete
+.container
+  .navbar
+    .navbar-header
+      %button.navbar-toggle{ type: 'button', data: { toggle: 'collapse', target: '.navbar-collapse' } }
+        %span.sr-only
+          Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{ href: '/' }
+        %i.fa.fa-bulb-o
+    .collapse.navbar-collapse
+      - unless user_signed_in?
+        .pull-right.hidden-xs
+          = link_to new_user_session_path, class: 'navbar-btn btn btn-red' do
+            Sign In
+          &nbsp;
+          = link_to new_user_registration_path, class: 'navbar-btn btn btn-red' do
+            Sign Up
+        %div.hidden-lg.hidden-md.hidden-sm
+          = link_to new_user_session_path, class: 'navbar-btn btn btn-red' do
+            Sign In!
+          &nbsp;
+          = link_to new_user_registration_path, class: 'navbar-btn btn btn-red' do
+            Sign Up
+      - else
+        %ul.nav.navbar-nav
+          %li
+            = link_to dashboards_path do
+              %i.fa.fa-dashboard
+              Dashboard
+          %li
+            = link_to devices_path do
+              %i.fa.fa-folder-open-o
+              Devices
+        %ul.nav.navbar-nav.navbar-right
+          %li.dropdown
+            = link_to '#', class: 'dropdown-toggle', 'data-toggle' => 'dropdown'  do
+              = current_user.email
+              %i.fa.fa-angle-down
+            %ul.dropdown-menu
+              %li
+                = link_to profile_path do
+                  %i.fa.fa-user
+                  Profile
+              %li.divider
+              %li
+                = link_to destroy_user_session_path, class: 'sign_out', method: :delete do
+                  %i.fa.fa-sign-out
+                  Sign Out

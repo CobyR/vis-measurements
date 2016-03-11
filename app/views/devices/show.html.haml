@@ -37,5 +37,6 @@
                   %td
                     = m['value']
                   %td
-                    = Time.zone.parse(m['created_at'])
+                    = time_ago_in_words Time.zone.parse(m['created_at'])
+                    ago
         
