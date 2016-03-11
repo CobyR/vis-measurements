@@ -12,5 +12,7 @@
         = f.input :size, collection: Widget::SIZES
         = f.input :order
         = f.input :display_type, collection: Widget::DISPLAY_TYPES
+        = f.input :color, collection: Widget::COLORS
+
       .form-actions
         = f.button :submit, 'Save Changes', class: 'btn btn-success'
