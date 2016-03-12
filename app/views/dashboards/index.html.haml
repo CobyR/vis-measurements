@@ -5,4 +5,4 @@
         = @title || "My Dashboard"
   .row
     - @widgets.each do |widget|
-      = render_widget widget
+      = render_widget widget, @widget_charts[widget.id]

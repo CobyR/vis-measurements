@@ -20,6 +20,7 @@ class WidgetsController < ApplicationController
 
   # GET /widgets/1/edit
   def edit
+    @chart = build_chart @widget
   end
 
   # POST /widgets
@@ -46,7 +47,7 @@ class WidgetsController < ApplicationController
     respond_to do |format|
       if @widget.update(widget_params)
         flash[:success] = 'Widget was successfully updated.'
-        format.html { redirect_to widgets_url }
+        format.html { redirect_to edit_widget_path @widget }
         format.json { render :show, status: :ok, location: @widget }
       else
         format.html { render :edit }

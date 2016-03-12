@@ -10,8 +10,9 @@
         = f.input :device_id, collection: current_user.devices
         = f.input :measurement, collection: DataSource::MEASUREMENTS
         = f.input :precision, as: :integer
-        = f.input :x_axis_min
-        = f.input :x_axis_max
+        = f.input :x_axis_min, label: 'Y axis min'
+        = f.input :x_axis_max, label: 'Y axis max'
+        = f.input :y_axis_side, collection: ['LEFT','RIGHT']
         = f.input :units
         = f.input :symbol
 

@@ -13,6 +13,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  precision   :integer
+#  y_axis_side :string
 #
 
 require 'test_helper'

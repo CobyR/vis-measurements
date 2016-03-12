@@ -8,4 +8,7 @@
             %i.fa.fa-pencil
       .panel-body{style: 'height: 462px'}
         .widget-body-chart{style: '', id: "widget-#{widget.id}" }
-          = high_chart "widget-#{widget.id}", @widget_charts[widget.id]
+          = high_chart "widget-#{widget.id}", chart
+  - if controller.action_name == 'edit'
+    %pre
+      = JSON.pretty_generate chart.to_json
