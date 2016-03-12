@@ -11,10 +11,11 @@ class DashboardsController < ApplicationController
       categories = fds.time_series.reverse.map {|p| Time.zone.parse(p[0]).strftime("%Y-%m-%d %I:%M:%S %P")}
 
       chart = LazyHighCharts::HighChart.new('graph') do |f|
-        f.xAxis(type: 'datetime',
-                dateTimeLabelFormats: {
-                  month: '%e %b',
-                  day: '%e' },
+        #f.xAxis(type: 'datetime',
+        #        dateTimeLabelFormats: {
+        #          month: '%e %b',
+        #          day: '%e' },
+        f.xAxis(categories: categories,
                 crosshair: true)
         if m_count == 2
           f.yAxis [
