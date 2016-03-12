@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   def build_chart widget
 
     # we need to do some logic to figure out the chart to build
-
+    return nil if widget.data_sources.count == 0
     categories = widget.data_sources.first.time_series.reverse.map { |p|
       Time.zone.parse(p[0]).strftime("%Y-%m-%d %I:%M:%S %P")}
 
