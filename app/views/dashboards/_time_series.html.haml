@@ -9,6 +9,6 @@
       .panel-body{style: 'height: 462px'}
         .widget-body-chart{style: '', id: "widget-#{widget.id}" }
           = high_chart "widget-#{widget.id}", chart unless chart.nil?
-  - if controller.action_name == 'edit'
+  - if controller.action_name == 'edit' && !chart.nil?
     %pre
       = JSON.pretty_generate chart.to_json
