@@ -33,7 +33,7 @@ class DataSourcesController < ApplicationController
     respond_to do |format|
       if @data_source.save
         flash[:success] = 'Data source was successfully created.'
-        format.html { redirect_to widget_path(@widget) }
+        format.html { redirect_to edit_widget_path(@widget) }
         format.json { render :show, status: :created, location: @data_source }
       else
         format.html { render :new }

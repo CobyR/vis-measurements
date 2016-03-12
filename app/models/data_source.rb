@@ -24,6 +24,13 @@ class DataSource < ApplicationRecord
                     brightness
                    |
 
+
+  SIDES = %w|NONE
+             LEFT
+             RIGHT
+            |
+
+
   belongs_to :widget
   belongs_to :device
 
