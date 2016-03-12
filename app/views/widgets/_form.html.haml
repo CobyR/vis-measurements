@@ -13,6 +13,6 @@
         = f.input :order
         = f.input :display_type, collection: Widget::DISPLAY_TYPES
         = f.input :color, collection: Widget::COLORS
-
+        = f.input :public_display, as: :boolean
       .form-actions
         = f.button :submit, 'Save Changes', class: 'btn btn-success'

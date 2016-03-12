@@ -1,7 +1,7 @@
 module WidgetsHelper
 
   def render_widget widget
-    render partial: widget.display_type.downcase, locals: { widget: widget }
+    render partial: "dashboards/#{widget.display_type.downcase}", locals: { widget: widget }
   end
 
   def display_current_value data_source

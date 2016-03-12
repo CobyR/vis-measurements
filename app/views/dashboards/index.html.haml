@@ -1,7 +1,8 @@
 .container
   .row
     .col-md-12
-      %h1 My Dashboard
+      %h1
+        = @title || "My Dashboard"
   .row
     - @widgets.each do |widget|
       = render_widget widget

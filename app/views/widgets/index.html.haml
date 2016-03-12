@@ -25,6 +25,8 @@
             %th
               Data Sources
             %th
+              Public
+            %th
               Created
             %th
               Updated
@@ -43,9 +45,11 @@
               %td
                 = widget.display_type
               %td
-                = widget.color
+                = widget.safe_color
               %td.text-center
                 = widget.data_sources.count
+              %td.text-center
+                = widget.public_display
               %td
                 = time_ago_in_words widget.created_at
                 ago
