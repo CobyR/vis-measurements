@@ -6,10 +6,8 @@
       .small
         Refreshed at:
         = Time.zone.now
-        = simple_form_for :time_series, url: refresh_dashboards_path, html: { class: 'form-inline' }, method: :put  do |f|
-          = f.input :limit, collection: [['last 50 values', 50],['last 100 values', 100],['last 500 values',500]], selected: @limit
-          = f.button :submit, 'change period', class: 'btn btn-default'
-
+        - if @title.nil?
+          = render partial: 'dashboards/change_period'
   .row
     - @widgets.each do |widget|
       = render_widget widget, @widget_charts[widget.id]
