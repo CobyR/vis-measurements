@@ -32,8 +32,9 @@ class Device < ApplicationRecord
     data = JSON.parse open("#{SOURCE_URL}/api/measurements?device=#{self.identifier.upcase}").read
   end
 
-  def time_series measurement
-    @time_series ||= JSON.parse open("#{SOURCE_URL}/api/measurements?device=#{self.identifier.upcase}&format=ts&name=#{measurement}").read
+  def time_series measurement, limit = 50
+    url = "#{SOURCE_URL}/api/measurements?device=#{self.identifier.upcase}&format=ts&name=#{measurement}&limit=#{limit}"
+   @time_series = JSON.parse open(url).read
   end
 
   def current_value measurement

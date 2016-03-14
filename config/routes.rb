@@ -6,7 +6,12 @@ Rails.application.routes.draw do
 
   resources :devices
 
-  resources :dashboards
+  resources :dashboards do
+    collection do
+      put 'refresh', action: 'index'
+      get 'refresh', action: 'index'
+    end
+  end
 
   resource :profile, controller: 'profile'
 

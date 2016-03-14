@@ -9,11 +9,12 @@ class ApplicationController < ActionController::Base
     Time.use_zone(current_user.try(:time_zone) || 'UTC', &block)
   end
 
-  def build_chart widget
+  def build_chart widget, limit = 50
 
     # we need to do some logic to figure out the chart to build
     return nil if widget.data_sources.count == 0
-    categories = widget.data_sources.first.time_series.reverse.map { |p|
+
+    categories = widget.data_sources.first.time_series(limit).reverse.map { |p|
       Time.zone.parse(p[0]).strftime("%Y-%m-%d %I:%M:%S %P")}
 
     chart = LazyHighCharts::HighChart.new('graph') do |f|
@@ -38,7 +39,7 @@ class ApplicationController < ActionController::Base
         f.series(
                  type: 'spline',
                  name: "#{ds.device.location} #{ds.symbol}",
-                 data: ds.time_series.reverse.map {|d| d[1]},
+                 data: ds.time_series(limit).reverse.map {|d| d[1]},
                  yAxis: index
                  )
       end

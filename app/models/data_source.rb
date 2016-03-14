@@ -38,8 +38,8 @@ class DataSource < ApplicationRecord
     device.current_value(measurement).first
   end
 
-  def time_series
-    device.time_series(measurement)
+  def time_series limit = 50
+    device.time_series(measurement, limit)
   end
 
 end
