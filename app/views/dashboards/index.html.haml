@@ -5,6 +5,9 @@
     .col-md-12
       %h1
         = @title || "My Dashboard"
+      .small
+        Refreshed at:
+        = Time.zone.now
   .row
     - @widgets.each do |widget|
       = render_widget widget, @widget_charts[widget.id]
