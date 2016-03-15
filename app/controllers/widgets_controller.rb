@@ -10,7 +10,7 @@ class WidgetsController < ApplicationController
   # GET /widgets/1
   # GET /widgets/1.json
   def show
-    redirect_to edit_path @widget
+    redirect_to edit_widget_path @widget
   end
 
   # GET /widgets/new

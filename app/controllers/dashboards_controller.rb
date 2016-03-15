@@ -12,7 +12,11 @@ class DashboardsController < ApplicationController
     @widget_charts = {}
 
     @widgets.each do |widget|
-      @widget_charts[widget.id] = build_chart widget, @limit
+      unless @limit.to_i == 0
+        @widget_charts[widget.id] = build_chart widget, @limit
+      else
+        @widget_charts[widget.id] = build_chart_hourly widget, @limit
+      end
     end
   end
 

@@ -13,5 +13,6 @@ module VisMeasurements
     # -- all .rb files in that directory are automatically loaded.
 
     config.time_zone = 'Pacific Time (US & Canada)'
+    config.autoload_paths << Rails.root.join('lib')
   end
 end

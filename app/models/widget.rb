@@ -35,6 +35,22 @@ class Widget < ApplicationRecord
               danger
              |
 
+  LIMITS = [
+            ['last 50 values',50],
+            ['last 100 values', 100],
+            ['last 500 values', 500],
+            ['last 1,000 values', 1000],
+            ['last hour', 'H|1'],
+            ['last six hours', 'H|6'],
+            ['last 12 hours', 'H|12'],
+            ['last 24 hours', 'H|24'],
+            ['last 48 hours', 'H|48'],
+            ['last three days', 'H|72'],
+            ['last seven days', 'H|168'],
+            ['last 10 days', 'H|240'],
+            ['last 2 weeks', 'H|336']
+           ]
+
   belongs_to :user
 
   has_many :data_sources
