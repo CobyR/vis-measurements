@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 class DashboardsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     if params[:time_series]
       @limit = params[:time_series][:limit]

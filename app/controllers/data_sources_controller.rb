@@ -1,4 +1,5 @@
 class DataSourcesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_data_source, only: [:show, :edit, :update, :destroy]
 
   # GET /data_sources
