@@ -3,9 +3,10 @@
     .panel{class: "panel-#{widget.safe_color}"}
       .panel-heading.text-center
         = widget.name
-        .pull-right
-          = link_to edit_widget_path(widget) do
-            %i.fa.fa-pencil
+        - if user_signed_in? && current_user == widget.user
+          .pull-right
+            = link_to edit_widget_path(widget) do
+              %i.fa.fa-pencil
       .panel-body{style: 'height: 462px'}
         .widget-body-chart{style: '', id: "widget-#{widget.id}" }
           = high_chart "widget-#{widget.id}", chart unless chart.nil?
