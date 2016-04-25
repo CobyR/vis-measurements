@@ -29,7 +29,9 @@ class Device < ApplicationRecord
  end
 
   def measurements
-    data = JSON.parse open("#{SOURCE_URL}/api/measurements?device=#{self.identifier.upcase}").read
+    if self.defined?
+      data = JSON.parse open("#{SOURCE_URL}/api/measurements?device=#{self.identifier.upcase}").read
+    end
   end
 
   def time_series measurement, limit = 50
