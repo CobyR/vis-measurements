@@ -31,6 +31,8 @@ class Device < ApplicationRecord
   def measurements
     if self.defined?
       data = JSON.parse open("#{SOURCE_URL}/api/measurements?device=#{self.identifier.upcase}").read
+    else
+      []
     end
   end
 
