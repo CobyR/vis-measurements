@@ -6,7 +6,7 @@ class DashboardsController < ApplicationController
     if params[:time_series]
       @limit = params[:time_series][:limit]
     else
-      @limit = 50
+      @limit = 'H|12'
     end
 
     @widgets = current_user.widgets.where(active: true)

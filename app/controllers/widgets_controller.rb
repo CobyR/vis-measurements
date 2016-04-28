@@ -14,7 +14,7 @@ class WidgetsController < ApplicationController
     if params[:time_series]
       @limit = params[:time_series][:limit]
     else
-      @limit = 50
+      @limit = 'H|24'
     end
 
     if @limit.to_i == 0
