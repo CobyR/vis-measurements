@@ -3,6 +3,9 @@
     .panel{class: "panel-#{widget.safe_color}"}
       .panel-heading.text-center
         = widget.name
+        .pull-left
+          = link_to widget_path(widget) do
+            %i.fa.fa-newspaper-o
         - if user_signed_in? && current_user == widget.user
           .pull-right
             = link_to edit_widget_path(widget) do
