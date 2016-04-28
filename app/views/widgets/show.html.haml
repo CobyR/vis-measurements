@@ -1,6 +1,8 @@
-%p#notice= notice
-
-
-= link_to 'Edit', edit_widget_path(@widget)
-\|
-= link_to 'Back', widgets_path
+.container
+  .row
+    = render partial: 'widgets/change_period'
+  .row
+    - unless @widget.size.to_i >2
+      .col-md-3
+        &nbsp;
+    = render_widget @widget, @chart

@@ -1,0 +1,4 @@
+.pull-right{style: 'margin-bottom: 5px;'}
+  = simple_form_for :time_series, url: refresh_widget_path(@widget), html: { class: 'form-inline' }, method: :put  do |f|
+    = f.input :limit, collection: Widget::LIMITS, selected: @limit, input_html: { class: 'input-sm' }
+    = f.button :submit, 'Apply', class: 'btn btn-default btn-sm'

@@ -17,6 +17,10 @@ Rails.application.routes.draw do
 
   resources :widgets do
     resources :data_sources
+    member do
+      put 'refresh', action: 'show'
+      get 'refresh', action: 'show'
+    end
   end
 
 end

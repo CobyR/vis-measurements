@@ -11,7 +11,17 @@ class WidgetsController < ApplicationController
   # GET /widgets/1
   # GET /widgets/1.json
   def show
-    redirect_to edit_widget_path @widget
+    if params[:time_series]
+      @limit = params[:time_series][:limit]
+    else
+      @limit = 50
+    end
+
+    if @limit.to_i == 0
+      @chart = build_chart_hourly @widget, @limit
+    else
+      @chart = build_chart @widget, @limit
+    end
   end
 
   # GET /widgets/new
