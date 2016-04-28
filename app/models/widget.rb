@@ -40,7 +40,9 @@ class Widget < ApplicationRecord
             ['last 100 values', 100],
             ['last 500 values', 500],
             ['last 1,000 values', 1000],
+            ['last 5,000 values', 5000],
             ['last hour', 'H|1'],
+            ['last three hours','H|3'],
             ['last six hours', 'H|6'],
             ['last 12 hours', 'H|12'],
             ['last 24 hours', 'H|24'],
@@ -48,7 +50,9 @@ class Widget < ApplicationRecord
             ['last three days', 'H|72'],
             ['last seven days', 'H|168'],
             ['last 10 days', 'H|240'],
-            ['last 2 weeks', 'H|336']
+            ['last 2 weeks', 'H|336'],
+            ['last 4 weeks', 'H|672'],
+            ['last 30 days', 'H|720']
            ]
 
   belongs_to :user
