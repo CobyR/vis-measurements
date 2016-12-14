@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
   def welcome
-    @widgets = Widget.all.where(public_display: true).order(order: :asc)
+    limit = params[:limit].to_i || 5
+    @widgets = Widget.all.where(public_display: true).order(order: :asc).limit(limit)
     @title = "Public Widgets"
 
     @widget_charts = {}
